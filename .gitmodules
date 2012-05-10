@@ -1,0 +1,3 @@
+[submodule "elisp/php-mode"]
+	path = elisp/php-mode
+	url = https://github.com/ejmr/php-mode.git
