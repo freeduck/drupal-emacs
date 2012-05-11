@@ -39,22 +39,39 @@ How to
 Copy or soft link my-screen-pager into path
 
 start screen
+
     $ screen
+
 split window
+
     C-a S
+
 change window
+
     C-a <TAB>
+
 create a new window
+
     C-a c
+
 start a new screen session in this window
+
     $ screen -m
+
 get and copy the session id
+
     $echo $STY
+
 switch window
+
     C-a <TAB>
+
 start mysql
+
     $mysql -u....
+
 load script
+
     pager my-screen-pager <COPIED SESSION ID>
 
 Now the bottom half of the window acts as a result browser, where you can search in the result and switch between the current a previous results.
