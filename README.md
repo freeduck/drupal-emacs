@@ -14,6 +14,7 @@ Once you have retrieved the project copy or soft link init.el into ~/.emacs.d/
 And add the elisp folder and the php-mode folder inside that to the load-path
 
 (add-to-list 'load-path "<PATH TO DRUPAL-EMACS>/elisp")
+
 (add-to-list 'load-path "<PATH TO DRUPAL-EMACS>/elisp/php-mode")
 
 to the beginning of init.el
@@ -38,23 +39,23 @@ How to
 Copy or soft link my-screen-pager into path
 
 start screen
- $ screen
+    $ screen
 split window
- C-a S
+    C-a S
 change window
- C-a <TAB>
+    C-a <TAB>
 create a new window
- C-a c
+    C-a c
 start a new screen session in this window
- $ screen -m
+    $ screen -m
 get and copy the session id
- $echo $STY
+    $echo $STY
 switch window
- C-a <TAB>
+    C-a <TAB>
 start mysql
- $mysql -u....
+    $mysql -u....
 load script
- pager my-screen-pager <COPIED SESSION ID>
+    pager my-screen-pager <COPIED SESSION ID>
 
 Now the bottom half of the window acts as a result browser, where you can search in the result and switch between the current a previous results.
 
