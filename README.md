@@ -30,11 +30,11 @@ Extra features
 ==============
 
 MySQL screen client
-===================
+-------------------
 The sh folder contains a MySQL pager script, which makes it possible to use gnu screen as a MySQL result browser.
 
 How to
-======
+------
 Copy or soft link my-screen-pager into path
 
 start screen
