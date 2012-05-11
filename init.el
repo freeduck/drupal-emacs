@@ -1,5 +1,21 @@
-(add-to-list 'load-path "~/.emacs.d/elisp")
-(add-to-list 'load-path "~/.emacs.d/elisp/php-mode")
+;; Copyright 2012 Kristian Nygaard Jensen
+
+;; This file is part of drupal-emacs.
+
+;; Foobar is free software: you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation, either version 3 of the License, or
+;; (at your option) any later version.
+
+;; Foobar is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+
+;; You should have received a copy of the GNU General Public License
+;; along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
+(add-to-list 'load-path "~/lib/drupal-emacs/elisp")
+(add-to-list 'load-path "~/lib/drupal-emacs/elisp/php-mode")
 (require 'php-mode)
 
 (fset 'yes-or-no-p 'y-or-n-p)           ;replace y-e-s by y
@@ -22,17 +38,6 @@
   (flet ((file-remote-p (&rest) nil))
     ad-do-it))
 (ad-activate 'hack-dir-local-variables)
-
-
-(defun compile-tags ()
-  "compile etags for the current project"
-  (interactive)
-  (setq current-dir default-directory )
-  (cd project-root-dir)
-  (shell-command "rm TAGS;find -L . -name \"*.php\" -o -name \"*.inc\" -o -name \"*.module\" -exec ctags --language-force=PHP -ea {} \\;")
-  ;(compile "rm TAGS;find -L . -name \"*.php\" -o -name \"*.inc\" -o -name \"*.module\" -exec ctags --language-force=PHP -ea {} \\;")
-  (cd current-dir))
-(add-hook 'after-save-hook 'compile-tags)
 
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
