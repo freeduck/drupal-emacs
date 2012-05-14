@@ -40,7 +40,7 @@
 (defun compile-tags-action (project-root-dir, current-dir)
   "compile etags for the current project"
   (cd project-root-dir)
-  (start-file-process-shell-command "shell" nil "rm TAGS;find -L . -name \"*.php\" -o -name \"*.inc\" -o -name \"*.module\" -exec ctags --language-force=PHP -ea {} \\;")
+  (start-file-process-shell-command "shell" nil "rm TAGS;find -L .  -name \"*.php\" -o -name \"*.inc\" -o -name \"*.module\"|xargs ctags -ea --language-force=PHP")
   (cd current-dir))
 
 (defun compile-tags ()

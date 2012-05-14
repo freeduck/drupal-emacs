@@ -21,6 +21,7 @@
 (fset 'yes-or-no-p 'y-or-n-p)           ;replace y-e-s by y
 (setq x-select-enable-primary nil)
 (setq x-select-enable-clipboard t)
+(setq visible-bell t)
 
 (autoload 'drupal-mode "drupal-mode" "Major mode for editing DRUPAL php code." t)
 (add-to-list 'auto-mode-alist '("\\.php$" . drupal-mode))
