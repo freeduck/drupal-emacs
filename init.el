@@ -16,14 +16,15 @@
 ;; along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
 (add-to-list 'load-path "~/lib/drupal-emacs/elisp")
 (add-to-list 'load-path "~/lib/drupal-emacs/elisp/php-mode")
-(require 'php-mode)
 
 (fset 'yes-or-no-p 'y-or-n-p)           ;replace y-e-s by y
 (setq x-select-enable-primary nil)
 (setq x-select-enable-clipboard t)
 (setq visible-bell t)
 
+(autoload 'php-mode "php-mode" "Major mode for editing PHP" t)
 (autoload 'drupal-mode "drupal-mode" "Major mode for editing DRUPAL php code." t)
+
 (add-to-list 'auto-mode-alist '("\\.php$" . drupal-mode))
 (add-to-list 'auto-mode-alist '("\\.inc$" . drupal-mode))
 (add-to-list 'auto-mode-alist '("\\.module$" . drupal-mode))
