@@ -26,16 +26,19 @@
   (setq indent-tabs-mode nil)
   (setq fill-column 78)
   (setq show-trailing-whitespace t)
+  (run-mode-hooks 'drupal-mode-hook)
+)
+(provide 'drupal-mode)
+
+(defun drupal-register-globals ()
+  (add-hook 'after-save-hook 'compile-tags)
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
   (global-set-key (kbd "<f5>") "grep -n -R --exclude-dir=.svn --exclude=*~ --exclude=#* --exclude=TAGS --exclude=*emconf* -i -e bootstrap . 2>")
   (global-set-key (kbd "<f6>") "$this->")
   (global-set-key (kbd "<f7>") "DIRECTORY_SEPARATOR")
   (global-set-key (kbd "<f12>") 'imenu-add-menubar-index)
   (global-set-key (kbd "<f8>") "__METHOD__.__FILE__.__LINE__")
-  (add-hook 'after-save-hook 'compile-tags)
-  (run-mode-hooks 'drupal-mode-hook)
-)
-(provide 'drupal-mode)
+  )
 
 (defun compile-tags-action (project-root-dir, current-dir)
   "compile etags for the current project"
@@ -50,4 +53,4 @@
     (compile-tags-action project-root-dir (file-name-directory  buffer-file-name))))
 
 
-(eval-after-load 'drupal-mode '(add-hook 'after-save-hook 'compile-tags))
+(eval-after-load 'drupal-mode 'drupal-register-globals)
