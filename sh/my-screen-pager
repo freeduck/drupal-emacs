@@ -21,7 +21,17 @@
 
 TEMP_RESULT=/tmp/result$RANDOM
 cat > $TEMP_RESULT
-screen -d -r $1 -X screen bash -c "cat $TEMP_RESULT|less"
+if [ ! -z $(command -v pager) ]; 
+then
+    PAGER=pager
+else if [ ! -z $(command -v most) ];
+then
+    PAGER=most
+else
+    PAGER=less
+fi
+fi
+screen -d -r $1 -X screen bash -c "cat $TEMP_RESULT|$PAGER"
 echo $TEMP_RESULT
 
 
