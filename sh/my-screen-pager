@@ -31,7 +31,7 @@ else
     PAGER="less -S"
 fi
 fi
-PAGER="less -S"
+
 screen -d -r $1 -X screen bash -c "cat $TEMP_RESULT|$PAGER"
 echo $TEMP_RESULT
 
