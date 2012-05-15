@@ -27,6 +27,39 @@ create a file called .dir-locals.el in the directory that you wish to be the roo
 
 This will make emacs create a TAGS file in that directory and update it each time you save a file
 
+Quirks
+======
+c-subword-mode migt be void when the drupal-mode is loaded, this is coursed by an obsolite elc file(compiled emacs elisp file), most likely delivered by your GNU/Linux/*nix distribution.
+
+You can test this by adding the following some where in init.el
+ 
+    (add-hook 'php-mode-hook '(lambda ()(c-subword-mode t)))
+
+If when you open a php file and the mini buffer says:
+
+File mode specification error: (void-function c-subword-mode)
+
+Then you need to update the cc-mode of your emacs.
+
+Howto
+-----
+Become root
+
+Change directory to /user/share
+
+And call:
+
+    find . -name "*cc-*.elc" -exec mv {} {}.old \;
+
+Then download cc-mode from http://cc-mode.sourceforge.net/release.php
+
+and extract it in the emacs lisp folder
+
+To find that folder one option is to call
+
+    find . -name "*cc-*.elc" (in /usr/share or /)
+
+
 Extra features
 ==============
 
