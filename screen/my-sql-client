@@ -1,0 +1,11 @@
+split
+screen -t my-query-display
+!bash -c "mysql --pager=\"my-screen-pager my-sql-result-session\" $MYSQL_ARGUMENTS"
+focus
+screen -t my-result-display
+!screen -mS my-sql-result-session
+focus
+
+
+
+

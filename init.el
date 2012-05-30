@@ -22,9 +22,11 @@
 (setq x-select-enable-primary nil)
 (setq x-select-enable-clipboard t)
 (setq visible-bell t)
+(setq tags-revert-without-query t)
 
-(autoload 'php-mode "php-mode" "Major mode for editing PHP" t)
 (autoload 'drupal-mode "drupal-mode" "Major mode for editing DRUPAL php code." t)
+(require 'drupal-mode)
+(require 'php-mode)
 (autoload 'geben "geben" "PHP Debugger on Emacs" t)
 
 (add-to-list 'auto-mode-alist '("\\.php$" . drupal-mode))

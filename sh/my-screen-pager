@@ -21,7 +21,7 @@
 
 TEMP_RESULT=/tmp/result$RANDOM
 cat > $TEMP_RESULT
-if [ ! -z $(command -v pager) ]; 
+if [ ! -z $(command -v pager) ];
 then
     PAGER=pager
 else if [ ! -z $(command -v most) ];
@@ -32,7 +32,8 @@ else
 fi
 fi
 
-screen -d -r $1  -X screen bash -c "screen -X title \"$(tail -n1 ~/.mysql_history)\";cat $TEMP_RESULT|$PAGER" 
+screen -d -r $1  -X screen bash -c "screen -X title \"$(tail -n1 ~/.mysql_history)\";cat $TEMP_RESULT|$PAGER"
 echo $TEMP_RESULT
+echo $STY
 
 
