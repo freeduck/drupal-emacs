@@ -4,3 +4,6 @@
 [submodule "elisp/bookmark-plus"]
 	path = elisp/bookmark-plus
 	url = https://github.com/emacsmirror/bookmark-plus.git
+[submodule "elisp/icicles"]
+	path = elisp/icicles
+	url = git://github.com/emacsmirror/icicles.git
