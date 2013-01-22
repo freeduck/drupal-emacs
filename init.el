@@ -17,7 +17,8 @@
 (add-to-list 'load-path "~/lib/drupal-emacs/elisp")
 (add-to-list 'load-path "~/lib/drupal-emacs/elisp/php-mode")
 (add-to-list 'load-path "~/lib/drupal-emacs/elisp/geben")
-(add-to-list 'load-path "~/lib/drupal-emacs/elisp/bookmark-plus/bookmark+")
+(add-to-list 'load-path "~/lib/drupal-emacs/elisp/bookmark-plus")
+(add-to-list 'load-path "~/lib/drupal-emacs/elisp/icicles")
 
 (fset 'yes-or-no-p 'y-or-n-p)           ;replace y-e-s by y
 (setq x-select-enable-primary nil)
@@ -29,6 +30,8 @@
 (require 'drupal-mode)
 (require 'php-mode)
 (require 'dired+)
+(require 'bookmark+)
+(require 'icicles)
 (autoload 'geben "geben" "PHP Debugger on Emacs" t)
 
 (add-to-list 'auto-mode-alist '("\\.php$" . drupal-mode))
