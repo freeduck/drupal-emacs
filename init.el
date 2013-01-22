@@ -32,6 +32,7 @@
 (require 'dired+)
 (require 'bookmark+)
 (require 'icicles)
+(icy-mode 1)
 (autoload 'geben "geben" "PHP Debugger on Emacs" t)
 
 (add-to-list 'auto-mode-alist '("\\.php$" . drupal-mode))
@@ -55,6 +56,7 @@
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
+ '(bmkp-last-as-first-bookmark-file "~/.emacs.bmk")
  '(safe-local-variable-values (quote ((eval setq project-root-dir (locate-dominating-file buffer-file-name ".dir-locals.el"))))))
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
