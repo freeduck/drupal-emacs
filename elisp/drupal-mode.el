@@ -34,6 +34,7 @@
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
   (if (fboundp 'c-subword-mode)
       (c-subword-mode t))
+  (color-theme-calm-forest)
   (run-mode-hooks 'drupal-mode-hook))
 
 (provide 'drupal-mode)
@@ -42,11 +43,11 @@
   (let ((tag-file (concat project-root-dir "TAGS")))
     (visit-tags-table tag-file)))
 
-
 (defun compile-tags-action (project-root-dir, current-dir)
   "compile etags for the current project"
   (cd project-root-dir)
-  (start-file-process-shell-command "shell-update-tags" nil "rm TAGS;find -L .  -name \"*.php\" -o -name \"*.inc\" -o -name \"*.module\"|xargs ctags -ea --language-force=PHP")
+  ;(start-file-process-shell-command "shell-update-tags" nil "rm TAGS;find -L .  -name \"*.php\" -o -name \"*.inc\" -o -name \"*.module\"|xargs ctags -ea --language-force=PHP")
+  (start-file-process-shell-command "shell-update-tags" nil "rm TAGS;find  .  -name \"*.php\" -o -name \"*.inc\" -o -name \"*.module\"|xargs ctags -ea --language-force=PHP")
   (set-process-filter (get-process "shell-update-tags") 'refresh-tags-table)
   (cd current-dir))
 
