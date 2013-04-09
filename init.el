@@ -19,6 +19,9 @@
 (add-to-list 'load-path "~/lib/drupal-emacs/elisp")
 (add-to-list 'load-path "~/lib/drupal-emacs/elisp/php-mode")
 (add-to-list 'load-path "~/lib/drupal-emacs/elisp/geben")
+(add-to-list 'load-path "~/lib/drupal-emacs/elisp/bookmark-plus")
+(add-to-list 'load-path "~/lib/drupal-emacs/elisp/icicles")
+
 ;; (add-to-list 'load-path "~/lib/elisp/ecb-2.40/")
 
 ;; (load-file "~/lib/elisp/cedet-1.0.1/common/cedet.el")
@@ -39,14 +42,16 @@
 (setq x-select-enable-clipboard t)
 (setq visible-bell t)
 (setq tags-revert-without-query t)
-
+(setq-default indent-tabs-mode nil)
 (autoload 'drupal-mode "drupal-mode" "Major mode for editing DRUPAL php code." t)
 (require 'drupal-mode)
 (require 'php-mode)
 (require 'sql-completion)
-(require 'color-theme)
-(color-theme-initialize)
 (setq mysql-password "staalanden")
+(require 'dired+)
+(require 'bookmark+)
+(require 'icicles)
+;(icy-mode 1)
 (autoload 'geben "geben" "PHP Debugger on Emacs" t)
 
 (add-to-list 'auto-mode-alist '("\\.php$" . drupal-mode))
@@ -59,12 +64,21 @@
 
 ;; Put autosave files (ie #foo#) and backup files (ie foo~) in ~/.emacs-backups/.
 (custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(auto-save-file-name-transforms (quote ((".*" "~/.emacs-backups/autosaves/\\1" t))))
  '(backup-directory-alist (quote ((".*" . "~/.emacs-backups/backups/"))))
+ '(bmkp-last-as-first-bookmark-file "~/.emacs.bmk")
+ '(bmkp-prompt-for-tags-flag t)
+ '(bookmark-version-control t)
+ '(geben-pause-at-entry-line t)
+ '(geben-session-enter-hook (quote (geben-session-redirect-init geben-session-context-init geben-session-breakpoint-init geben-session-source-init drupal-emacs-geben-session-init)))
+ '(geben-show-breakpoints-debugging-only t)
+ '(icicle-mode nil)
+ '(icicle-saved-completion-sets (quote (("breaking" . "/home/kristian/emacs-projects/breaking.icy"))))
+ '(js-indent-level 2)
  '(safe-local-variable-values (quote ((eval setq project-root-dir (locate-dominating-file buffer-file-name ".dir-locals.el")))))
  '(tool-bar-mode nil))
 
@@ -81,9 +95,15 @@
 
 (defun select-markdown-theme ()
   "Set the prefered theme for markdown editing"
-  (color-theme-pierson)
   (setq-default fill-column 80)
   (flyspell-mode t))
+
+(defun drupal-emacs-geben-session-init (session)
+  (let (result (geben-eval-expression "$_SERVER[\"REQUEST_URI\"]"))
+    (message "Printing the result")
+    (message result)))
+;;(geben-eval-expression "$_SERVER[\"REQUEST_URI\"]")
+
 
 (setq sql-interactive-mode-hook
       (lambda ()
@@ -110,13 +130,14 @@
   (tool-bar-mode -1)
   (scroll-bar-mode -1))
 
-(icy-mode 1)
 (global-set-key (kbd "<f11>") 'fullscreen)
 
 
+
+
 (custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  )

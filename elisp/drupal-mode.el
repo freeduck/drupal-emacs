@@ -34,7 +34,6 @@
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
   (if (fboundp 'c-subword-mode)
       (c-subword-mode t))
-  (color-theme-calm-forest)
   (run-mode-hooks 'drupal-mode-hook))
 
 (provide 'drupal-mode)

@@ -1,3 +1,9 @@
 [submodule "elisp/php-mode"]
 	path = elisp/php-mode
 	url = https://github.com/ejmr/php-mode.git
+[submodule "elisp/bookmark-plus"]
+	path = elisp/bookmark-plus
+	url = https://github.com/emacsmirror/bookmark-plus.git
+[submodule "elisp/icicles"]
+	path = elisp/icicles
+	url = git://github.com/emacsmirror/icicles.git
