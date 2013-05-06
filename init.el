@@ -51,7 +51,12 @@
 (require 'dired+)
 (require 'bookmark+)
 (require 'icicles)
-;(icy-mode 1)
+;;(icy-mode 1)
+
+(recentf-mode 1)
+(setq recentf-max-menu-items 25)
+(global-set-key "\C-x\ \C-r" 'recentf-open-files)
+
 (autoload 'geben "geben" "PHP Debugger on Emacs" t)
 
 (add-to-list 'auto-mode-alist '("\\.php$" . drupal-mode))
@@ -86,6 +91,7 @@
 (setq remember-handler-functions '(org-remember-handler))
 (add-hook 'remember-mode-hook 'org-remember-apply-template)
 
+(global-set-key (kbd "<f9>") 'bmkp-file-all-tags-jump)
 
 ;; create the autosave dir if necessary, since emacs won't.
 (make-directory "~/.emacs-backups/autosaves/" t)
