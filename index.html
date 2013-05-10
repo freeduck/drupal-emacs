@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Drupal-emacs : compilation of php-mode drupal-mode and simple projectmanagement, using directory variables" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Drupal-emacs</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/freeduck/drupal-emacs">View on GitHub</a>
+
+          <h1 id="project_title">Drupal-emacs</h1>
+          <h2 id="project_tagline">compilation of php-mode drupal-mode and simple projectmanagement, using directory variables</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/freeduck/drupal-emacs/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/freeduck/drupal-emacs/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>drupal-emacs</h1>
+
+<p>compilation of php-mode drupal-mode and simple project management, using directory variables</p>
+
+<h1>Getting started</h1>
+
+<p>When you clone this project remember to run:</p>
+
+<p>git submodule update --init</p>
+
+<p>Once you have retrieved the project copy or soft link init.el into ~/.emacs.d/</p>
+
+<p>And add the elisp folder and the php-mode folder inside that to the load-path</p>
+
+<p>(add-to-list 'load-path "/elisp")</p>
+
+<p>(add-to-list 'load-path "/elisp/php-mode")</p>
+
+<p>to the beginning of init.el</p>
+
+<h1>How to</h1>
+
+<p>create a file called .dir-locals.el in the directory that you wish to be the root of your project at give it the following content</p>
+
+<p>((nil . ((eval . (setq project-root-dir (locate-dominating-file buffer-file-name ".dir-locals.el"))))))</p>
+
+<p>This will make emacs create a TAGS file in that directory and update it each time you save a file</p>
+
+<h1>Quirks</h1>
+
+<p>c-subword-mode migt be void when the drupal-mode is loaded, this is coursed by an obsolite elc file(compiled emacs elisp file), most likely delivered by your GNU/Linux/*nix distribution.</p>
+
+<p>You can test this by adding the following some where in init.el</p>
+
+<pre><code>(add-hook 'php-mode-hook '(lambda ()(c-subword-mode t)))
+</code></pre>
+
+<p>If when you open a php file and the mini buffer says:</p>
+
+<p>File mode specification error: (void-function c-subword-mode)</p>
+
+<p>Then you need to update the cc-mode of your emacs.</p>
+
+<h2>Howto</h2>
+
+<p>Become root</p>
+
+<p>Change directory to /user/share</p>
+
+<p>And call:</p>
+
+<pre><code>find . -name "*cc-*.elc" -exec mv {} {}.old \;
+</code></pre>
+
+<p>Then download cc-mode from <a href="http://cc-mode.sourceforge.net/release.php">http://cc-mode.sourceforge.net/release.php</a></p>
+
+<p>and extract it in the emacs lisp folder</p>
+
+<p>To find that folder one option is to call</p>
+
+<pre><code>find . -name "*cc-*.elc" (in /usr/share or /)
+</code></pre>
+
+<h1>Extra features</h1>
+
+<h2>MySQL screen client</h2>
+
+<p>The sh folder contains a MySQL pager script, which makes it possible to use gnu screen as a MySQL result browser.</p>
+
+<h2>How to</h2>
+
+<p>Copy or soft link my-screen-pager into path</p>
+
+<p>start screen</p>
+
+<pre><code>$ screen
+</code></pre>
+
+<p>split window</p>
+
+<pre><code>C-a S
+</code></pre>
+
+<p>change window</p>
+
+<pre><code>C-a &lt;TAB&gt;
+</code></pre>
+
+<p>create a new window</p>
+
+<pre><code>C-a c
+</code></pre>
+
+<p>start a new screen session in this window</p>
+
+<pre><code>$ screen -m
+</code></pre>
+
+<p>get and copy the session id</p>
+
+<pre><code>$echo $STY
+</code></pre>
+
+<p>switch window</p>
+
+<pre><code>C-a &lt;TAB&gt;
+</code></pre>
+
+<p>start mysql</p>
+
+<pre><code>$mysql -u....
+</code></pre>
+
+<p>load script</p>
+
+<pre><code>pager my-screen-pager &lt;COPIED SESSION ID&gt;
+</code></pre>
+
+<p>Now the bottom half of the window acts as a result browser, where you can search in the result and switch between the current a previous results.</p>
+
+<p>The wrapper script pipes the result through less. So all the features of less are available in the result window.
+The script uses a temp file for piping to less. The name of this file is echoed back to Mysql, and can be used to process the result in grep or anything else you please.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Drupal-emacs maintained by <a href="https://github.com/freeduck">freeduck</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
