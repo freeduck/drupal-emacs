@@ -31,27 +31,56 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h1>drupal-emacs</h1>
+        <h1>
+<a name="drupal-emacs" class="anchor" href="#drupal-emacs"><span class="octicon octicon-link"></span></a>drupal-emacs</h1>
 
-<p>compilation of php-mode drupal-mode and simple project management, using directory variables</p>
+<p>A Compilation of php-mode, drupal-mode and a number of other useful emacs modules. </p>
 
-<h1>Getting started</h1>
+<h2>
+<a name="getting-started" class="anchor" href="#getting-started"><span class="octicon octicon-link"></span></a>Getting started</h2>
+
+<h3>
+<a name="load-module" class="anchor" href="#load-module"><span class="octicon octicon-link"></span></a>Load module</h3>
 
 <p>When you clone this project remember to run:</p>
 
 <p>git submodule update --init</p>
 
-<p>Once you have retrieved the project copy or soft link init.el into ~/.emacs.d/</p>
+<p>If you place the module outside of emacs default load-path, then you must add it to the path manually in emacs init file:</p>
 
-<p>And add the elisp folder and the php-mode folder inside that to the load-path</p>
+<blockquote>
+<p>The init file must be in either of the following location on Linux,UNIX and OSX systems
+~/.emacs, ~/.emacs.el, or ~/.emacs.d/init.el
+For Windows users look here <a href="http://www.gnu.org/software/emacs/windows/">Emacs on Window FAQ</a>.</p>
+</blockquote>
 
-<p>(add-to-list 'load-path "/elisp")</p>
+<p>Add this to the init file</p>
 
-<p>(add-to-list 'load-path "/elisp/php-mode")</p>
+<pre><code>(add-to-list 'load-path "&lt;SOME PATH&gt;/drupal-emacs")
+e.g
+(add-to-list 'load-path "~/lib/drupal-emacs")
+</code></pre>
 
-<p>to the beginning of init.el</p>
+<h3>
+<a name="activate-module" class="anchor" href="#activate-module"><span class="octicon octicon-link"></span></a>Activate module</h3>
 
-<h1>How to</h1>
+<pre><code>(require 'drupal-emacs)
+(drupal-emacs)
+</code></pre>
+
+<h3>
+<a name="performance" class="anchor" href="#performance"><span class="octicon octicon-link"></span></a>Performance</h3>
+
+<p>If you want emacs to load faster you should probably byte-compile the drupal-emacs directory. It is done like this:</p>
+
+<pre><code>C-u 0 M-x byte-recompile-directory RET
+Navigate to drupal-emacs and RET again.
+</code></pre>
+
+<p>Remember to recompile when there are updates in the module(from git or custom).</p>
+
+<h2>
+<a name="a-way-of-using-drupal-emacs-with-ctags" class="anchor" href="#a-way-of-using-drupal-emacs-with-ctags"><span class="octicon octicon-link"></span></a>A way of using drupal-emacs with ctags</h2>
 
 <p>create a file called .dir-locals.el in the directory that you wish to be the root of your project at give it the following content</p>
 
@@ -59,7 +88,8 @@
 
 <p>This will make emacs create a TAGS file in that directory and update it each time you save a file</p>
 
-<h1>Quirks</h1>
+<h2>
+<a name="quirks" class="anchor" href="#quirks"><span class="octicon octicon-link"></span></a>Quirks</h2>
 
 <p>c-subword-mode migt be void when the drupal-mode is loaded, this is coursed by an obsolite elc file(compiled emacs elisp file), most likely delivered by your GNU/Linux/*nix distribution.</p>
 
@@ -74,7 +104,8 @@
 
 <p>Then you need to update the cc-mode of your emacs.</p>
 
-<h2>Howto</h2>
+<h3>
+<a name="howto" class="anchor" href="#howto"><span class="octicon octicon-link"></span></a>Howto</h3>
 
 <p>Become root</p>
 
@@ -94,13 +125,16 @@
 <pre><code>find . -name "*cc-*.elc" (in /usr/share or /)
 </code></pre>
 
-<h1>Extra features</h1>
+<h2>
+<a name="extra-features" class="anchor" href="#extra-features"><span class="octicon octicon-link"></span></a>Extra features</h2>
 
-<h2>MySQL screen client</h2>
+<h3>
+<a name="mysql-screen-client" class="anchor" href="#mysql-screen-client"><span class="octicon octicon-link"></span></a>MySQL screen client</h3>
 
 <p>The sh folder contains a MySQL pager script, which makes it possible to use gnu screen as a MySQL result browser.</p>
 
-<h2>How to</h2>
+<h4>
+<a name="how-to" class="anchor" href="#how-to"><span class="octicon octicon-link"></span></a>How to</h4>
 
 <p>Copy or soft link my-screen-pager into path</p>
 
