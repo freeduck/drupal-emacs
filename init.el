@@ -37,6 +37,9 @@
 (require 'doremi-cmd)
 (require 'doremi-frm)
 
+(load-theme 'manoj-dark t)
+(show-paren-mode t)
+
 (fset 'yes-or-no-p 'y-or-n-p)           ;replace y-e-s by y
 (setq x-select-enable-primary nil)
 (setq x-select-enable-clipboard t)
@@ -51,7 +54,6 @@
 (require 'dired+)
 (require 'bookmark+)
 (require 'icicles)
-(icy-mode 1)
 
 (recentf-mode 1)
 (setq recentf-max-menu-items 25)
@@ -63,6 +65,7 @@
 (add-to-list 'auto-mode-alist '("\\.inc$" . drupal-mode))
 (add-to-list 'auto-mode-alist '("\\.module$" . drupal-mode))
 (add-to-list 'auto-mode-alist '("\\.install$" . drupal-mode))
+(add-to-list 'auto-mode-alist '("\\.test$" . drupal-mode))
 (add-to-list 'auto-mode-alist '("\\.txt$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.MD$" . markdown-mode))
@@ -147,3 +150,5 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+(icy-mode 1)
