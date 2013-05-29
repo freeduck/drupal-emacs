@@ -1,21 +1,22 @@
-drupal-emacs
-============
+# drupal-emacs #
+
 
 A Compilation of php-mode, drupal-mode and a number of other useful emacs modules. 
 
-Getting started
-===============
+## Getting started ##
+
+### Load module ###
+
 When you clone this project remember to run:
 
 git submodule update --init
 
 If you place the module outside of emacs default load-path, then you must add it to the path manually in emacs init file:
 
-    The init file must be in either of the following location on Linux,UNIX and OSX systems
+> The init file must be in either of the following location on Linux,UNIX and OSX systems
+> ~/.emacs, ~/.emacs.el, or ~/.emacs.d/init.el
+> For Windows users look here [Emacs on Window FAQ](http://www.gnu.org/software/emacs/windows/).
     
-    ~/.emacs, ~/.emacs.el, or ~/.emacs.d/init.el
-    
-    For Windows users look here [Emacs on Window FAQ](http://www.gnu.org/software/emacs/windows/)
 
 Add this to the init file
 
@@ -23,21 +24,21 @@ Add this to the init file
     e.g
     (add-to-list 'load-path "~/lib/drupal-emacs")
 
-And also in the init file require and activate the drupal-emacs module
+### Activate module ###
 
     (require 'drupal-emacs)
     (drupal-emacs)
 
-How to
-======
+## A way of using drupal-emacs with ctags ##
+
 create a file called .dir-locals.el in the directory that you wish to be the root of your project at give it the following content
 
 ((nil . ((eval . (setq project-root-dir (locate-dominating-file buffer-file-name ".dir-locals.el"))))))
 
 This will make emacs create a TAGS file in that directory and update it each time you save a file
 
-Quirks
-======
+## Quirks ##
+
 c-subword-mode migt be void when the drupal-mode is loaded, this is coursed by an obsolite elc file(compiled emacs elisp file), most likely delivered by your GNU/Linux/*nix distribution.
 
 You can test this by adding the following some where in init.el
@@ -50,8 +51,8 @@ File mode specification error: (void-function c-subword-mode)
 
 Then you need to update the cc-mode of your emacs.
 
-Howto
------
+### Howto ###
+
 Become root
 
 Change directory to /user/share
@@ -69,15 +70,15 @@ To find that folder one option is to call
     find . -name "*cc-*.elc" (in /usr/share or /)
 
 
-Extra features
-==============
+## Extra features ##
 
-MySQL screen client
--------------------
+
+### MySQL screen client ###
+
 The sh folder contains a MySQL pager script, which makes it possible to use gnu screen as a MySQL result browser.
 
-How to
-------
+#### How to ####
+
 Copy or soft link my-screen-pager into path
 
 start screen
