@@ -23,12 +23,14 @@
   )
 
 (defun drupal-emacs()
+  (require 'icicles)
   (require 'dired+)
   (require 'bookmark+)
-  (require 'icicles)
+  
   (require 'php-mode)
   (require 'drupal-mode)
 
+  (icy-mode 1)
   (load-theme 'manoj-dark t)
   (show-paren-mode t)
 
