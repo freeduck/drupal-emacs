@@ -1,7 +1,7 @@
 drupal-emacs
 ============
 
-compilation of php-mode drupal-mode and simple project management, using directory variables
+A Compilation of php-mode, drupal-mode and a number of other useful emacs modules. 
 
 Getting started
 ===============
@@ -9,15 +9,24 @@ When you clone this project remember to run:
 
 git submodule update --init
 
-Once you have retrieved the project copy or soft link init.el into ~/.emacs.d/
+If you place the module outside of emacs default load-path, then you must add it to the path manually in emacs init file:
 
-And add the elisp folder and the php-mode folder inside that to the load-path
+    The init file must be in either of the following location on Linux,UNIX and OSX systems
+    
+    ~/.emacs, ~/.emacs.el, or ~/.emacs.d/init.el
+    
+    For Windows users look here [Emacs on Window FAQ](http://www.gnu.org/software/emacs/windows/)
 
-(add-to-list 'load-path "<PATH TO DRUPAL-EMACS>/elisp")
+Add this to the init file
 
-(add-to-list 'load-path "<PATH TO DRUPAL-EMACS>/elisp/php-mode")
+    (add-to-list 'load-path "<SOME PATH>/drupal-emacs")
+    e.g
+    (add-to-list 'load-path "~/lib/drupal-emacs")
 
-to the beginning of init.el
+And also in the init file require and activate the drupal-emacs module
+
+    (require 'drupal-emacs)
+    (drupal-emacs)
 
 How to
 ======
