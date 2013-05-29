@@ -28,6 +28,14 @@ Add this to the init file
 
     (require 'drupal-emacs)
     (drupal-emacs)
+### Performance ###
+
+If you want emacs to load faster you should probably byte-compile the drupal-emacs directory. It is done like this:
+
+    C-u 0 M-x byte-recompile-directory RET
+    Navigate to drupal-emacs and RET again.
+
+Remember to recompile when there are updates in the module(from git or custom).
 
 ## A way of using drupal-emacs with ctags ##
 
