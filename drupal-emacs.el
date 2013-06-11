@@ -26,7 +26,7 @@
   (require 'icicles)
   (require 'dired+)
   (require 'bookmark+)
-  
+
   (require 'php-mode)
   (require 'drupal-mode)
 
@@ -40,6 +40,7 @@
   (setq visible-bell t)
   (setq tags-revert-without-query t)
   (setq-default indent-tabs-mode nil)
+  (setq-default bmkp-prompt-for-tags-flag t)
   (autoload 'drupal-mode "drupal-mode" "Major mode for editing DRUPAL php code." t)
 
   (add-to-list 'auto-mode-alist '("\\.php$" . drupal-mode))
