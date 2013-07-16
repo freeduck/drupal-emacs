@@ -1,9 +1,10 @@
 [submodule "elisp/php-mode"]
 	path = elisp/php-mode
-	url = github:freeduck/php-mode.git
+	url = https://github.com/freeduck/php-mode.git
 [submodule "elisp/bookmark-plus"]
 	path = elisp/bookmark-plus
-	url = github:freeduck/bookmark-plus.git
+	url = https://github.com/freeduck/bookmark-plus.git
 [submodule "elisp/icicles"]
 	path = elisp/icicles
-	url = github:freeduck/icicles.git
+	url = https://github.com/freeduck/icicles.git
+
