@@ -1,0 +1,35 @@
+JS_SUBDIRS = modules themes misc profiles sites
+.PHONY : all clean build $(JS_SUBDIRS)
+
+all : clean build
+
+clean :
+	if [ -f TAGS ]; then rm TAGS; fi
+	if [ -f TAGS ]; then rm TAGS_JS_ALL; fi
+	if [ -f profiles/TAGS ]; then rm profiles/TAGS; fi
+	if [ -f sites/TAGS ]; then rm sites/TAGS; fi
+
+build : TAGS_JS_ALL TAGS_PHP_ALL
+	cat TAGS_JS_ALL TAGS_PHP_ALL > TAGS
+	rm TAGS_JS_ALL TAGS_PHP_ALL
+
+
+
+TAGS_JS_ALL : clean $(JS_SUBDIRS)
+	$(foreach dir, $(JS_SUBDIRS), cat $(dir)/TAGS >> TAGS_JS_ALL;)
+
+$(JS_SUBDIRS): clean
+	if [ ! -f "$@/TAGS" ]; then find $@ -name "*.js"|xargs ctags -eo "$@/TAGS" --language-force=JavaScript; fi
+
+TAGS_PHP_ALL : clean TAGS_PHP TAGS_PHP_INC TAGS_PHP_MODULE
+	cat TAGS_PHP TAGS_PHP_INC TAGS_PHP_MODULE >> TAGS_PHP_ALL
+	rm TAGS_PHP TAGS_PHP_INC TAGS_PHP_MODULE
+
+TAGS_PHP :
+	find  .  -name "*.php"|xargs ctags -o TAGS_PHP --language-force=PHP
+
+TAGS_PHP_INC :
+	find  .  -name "*.inc"|xargs ctags -o TAGS_PHP_INC --language-force=PHP
+
+TAGS_PHP_MODULE :
+	find  .  -name "*.module"|xargs ctags -o TAGS_PHP_MODULE --language-force=PHP
