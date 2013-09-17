@@ -30,6 +30,8 @@
   (global-set-key (kbd "<f7>") "DIRECTORY_SEPARATOR")
   (global-set-key (kbd "<f12>") 'imenu-add-menubar-index)
   (global-set-key (kbd "<f8>") "__METHOD__.__FILE__.__LINE__")
+  (global-set-key (kbd "C-c c") 'compile)
+  (global-set-key (kbd "C-c r") 'recompile)
   (add-hook 'after-save-hook 'compile-tags)
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
   (if (fboundp 'c-subword-mode)
