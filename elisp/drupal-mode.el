@@ -32,6 +32,7 @@
   (global-set-key (kbd "<f8>") "__METHOD__.__FILE__.__LINE__")
   (global-set-key (kbd "C-c c") 'compile)
   (global-set-key (kbd "C-c r") 'recompile)
+  (setq-default compile-command "make -k -j5")
   (add-hook 'after-save-hook 'compile-tags)
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
   (if (fboundp 'c-subword-mode)
