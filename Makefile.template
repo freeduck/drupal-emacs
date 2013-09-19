@@ -1,9 +1,10 @@
 SUBDIRS = modules themes misc profiles sites
+TAGS_INCLUDE = $(addprefix --etags-include=,$(addsuffix /TAGS,$(SUBDIRS)))
 
 .PHONY : all clean  $(PHP_TARGETS) $(SUBDIRS)
 
 all : $(SUBDIRS)
-	$(foreach dir, $(SUBDIRS), cat $(dir)/TAGS >> TAGS;)
+	ctags -e $(TAGS_INCLUDE)
 	@echo "Done"
 
 clean :
