@@ -1,9 +1,10 @@
 SUBDIRS = modules themes misc profiles sites
+TAGS_TARGETS = $(addsuffix /TAGS,$(SUBDIRS))
 TAGS_INCLUDE = $(addprefix --etags-include=,$(addsuffix /TAGS,$(SUBDIRS)))
 
-.PHONY : all clean  $(PHP_TARGETS) $(SUBDIRS)
+.PHONY : all clean
 
-all : $(SUBDIRS)
+all : $(TAGS_TARGETS)
 	ctags -e $(TAGS_INCLUDE)
 	@echo "Done"
 
@@ -13,6 +14,6 @@ clean :
 	if [ -f profiles/TAGS ]; then rm profiles/TAGS; fi
 	if [ -f sites/TAGS ]; then rm sites/TAGS; fi
 
-$(SUBDIRS) : clean
-	find $@ -name "*.php" -o -name "*.module" -o -name "*.inc" -o -name "*.js" |xargs ctags -eao $@/TAGS --langmap=php:+.inc+.module;
+$(TAGS_TARGETS) : clean
+	find $(@D) -name "*.php" -o -name "*.module" -o -name "*.inc" -o -name "*.js" |xargs ctags -eao $@ --langmap=php:+.inc+.module;
 
