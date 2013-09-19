@@ -10,7 +10,6 @@ all : $(TAGS_TARGETS)
 
 clean :
 	if [ -f TAGS ]; then rm TAGS; fi
-	if [ -f TAGS ]; then rm TAGS_JS_ALL; fi
 	if [ -f profiles/TAGS ]; then rm profiles/TAGS; fi
 	if [ -f sites/TAGS ]; then rm sites/TAGS; fi
 
