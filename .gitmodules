@@ -11,6 +11,3 @@
 [submodule "elisp/web-mode"]
 	path = elisp/web-mode
 	url = https://github.com/freeduck/web-mode.git
-[submodule "elisp/cedet"]
-	path = elisp/cedet
-	url = https://github.com/freeduck/cedet.git
