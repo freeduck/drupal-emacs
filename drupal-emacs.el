@@ -20,8 +20,9 @@
   (add-to-list 'load-path (file-truename "./elisp/geben"))
   (add-to-list 'load-path (file-truename "./elisp/icicles"))
   (add-to-list 'load-path (file-truename "./elisp/php-mode"))
-  )
-
+  (add-to-list 'load-path (file-truename "./elisp/web-mode")))
+(require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
 (defun drupal-emacs()
   (require 'icicles)
   (require 'dired+)
@@ -43,7 +44,7 @@
   (setq-default bmkp-prompt-for-tags-flag t)
   (autoload 'drupal-mode "drupal-mode" "Major mode for editing DRUPAL php code." t)
 
-  (add-to-list 'auto-mode-alist '("\\.php$" . drupal-mode))
+  ;;(add-to-list 'auto-mode-alist '("\\.php$" . drupal-mode))
   (add-to-list 'auto-mode-alist '("\\.inc$" . drupal-mode))
   (add-to-list 'auto-mode-alist '("\\.module$" . drupal-mode))
   (add-to-list 'auto-mode-alist '("\\.install$" . drupal-mode))
