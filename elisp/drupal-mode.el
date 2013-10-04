@@ -51,5 +51,5 @@
   (if (boundp 'project-root-dir)
     (compile-tags-action project-root-dir (file-name-directory  buffer-file-name))))
 
-(global-set-key (kbd "C-c j") 'icicle-bookmark-all-tags)
+(global-set-key (kbd "C-c j") 'icicle-bookmark-some-tags)
 
