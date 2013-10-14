@@ -69,4 +69,4 @@
   (flyspell-mode t)
   )
 
-(provide 'drupal-emacs)
+
