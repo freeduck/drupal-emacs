@@ -60,6 +60,7 @@
   (global-set-key "\C-x\ \C-r" 'recentf-open-files)
 
   (add-hook 'markdown-mode-hook 'select-markdown-theme)
+  (autoload 'geben "geben" "DBGp protocol frontend, a script debugger" t)
   )
 
 (defun select-markdown-theme ()
