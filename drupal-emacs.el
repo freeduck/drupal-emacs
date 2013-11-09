@@ -70,3 +70,4 @@
   )
 
 
+(provide 'drupal-emacs)
