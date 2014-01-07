@@ -11,3 +11,6 @@
 [submodule "elisp/web-mode"]
 	path = elisp/web-mode
 	url = https://github.com/freeduck/web-mode.git
+[submodule "elisp/feature-mode"]
+	path = elisp/feature-mode
+	url = https://github.com/michaelklishin/cucumber.el.git
