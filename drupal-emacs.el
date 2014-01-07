@@ -21,6 +21,7 @@
   (add-to-list 'load-path (file-truename "./elisp/icicles"))
   (add-to-list 'load-path (file-truename "./elisp/php-mode"))
   (add-to-list 'load-path (file-truename "./elisp/feature-mode"))
+  (add-to-list 'load-path (file-truename "./elisp/coffee-mode"))
   (add-to-list 'load-path (file-truename "./elisp/web-mode")))
 
 
@@ -47,6 +48,7 @@
   (setq-default bmkp-prompt-for-tags-flag t)
   (autoload 'drupal-mode "drupal-mode" "Major mode for editing DRUPAL php code." t)
   (autoload 'feature-mode "feature-mode" "Major mode for editing BDD stories" t)
+  (autoload 'coffee-mode "coffee-mode" "Major mode for editing coffee scripts" t)
 
   ;;(add-to-list 'auto-mode-alist '("\\.php$" . drupal-mode))
   (add-to-list 'auto-mode-alist '("\\.inc$" . drupal-mode))
@@ -59,6 +61,7 @@
   (add-to-list 'auto-mode-alist '("\\.feature$" . feature-mode))
   (add-to-list 'auto-mode-alist '("\\.story$" . feature-mode))
   (add-to-list 'auto-mode-alist '("\\.tpl\\.php$" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.coffee$" . coffee-mode))
 
 
 
