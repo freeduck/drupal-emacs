@@ -16,4 +16,4 @@
 	url = https://github.com/freeduck/cucumber.el.git
 [submodule "elisp/coffee-mode"]
 	path = elisp/coffee-mode
-	url = https://github.com/defunkt/coffee-mode
+	url = https://github.com/freeduck/coffee-mode.git
