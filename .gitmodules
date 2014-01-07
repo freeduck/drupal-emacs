@@ -14,3 +14,6 @@
 [submodule "elisp/feature-mode"]
 	path = elisp/feature-mode
 	url = https://github.com/michaelklishin/cucumber.el.git
+[submodule "elisp/coffee-mode"]
+	path = elisp/coffee-mode
+	url = https://github.com/defunkt/coffee-mode
