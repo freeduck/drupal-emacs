@@ -17,3 +17,6 @@
 [submodule "elisp/coffee-mode"]
 	path = elisp/coffee-mode
 	url = https://github.com/freeduck/coffee-mode.git
+[submodule "elisp/paredit"]
+	path = elisp/paredit
+	url = https://github.com/freeduck/paredit.git
