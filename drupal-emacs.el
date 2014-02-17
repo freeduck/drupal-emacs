@@ -22,18 +22,15 @@
   (add-to-list 'load-path (file-truename "./elisp/php-mode"))
   (add-to-list 'load-path (file-truename "./elisp/feature-mode"))
   (add-to-list 'load-path (file-truename "./elisp/coffee-mode"))
-  (add-to-list 'load-path (file-truename "./elisp/web-mode")))
+  (add-to-list 'load-path (file-truename "./elisp/web-mode"))
+  (add-to-list 'load-path (file-truename "./elisp/paredit")))
 
 
 (defun drupal-emacs()
   (require 'icicles)
   (require 'dired+)
   (require 'bookmark+)
-  (require 'feature-mode)
-
   (require 'php-mode)
-  (require 'drupal-mode)
-  (require 'web-mode)
 
   (icy-mode 1)
   (load-theme 'manoj-dark t)
@@ -49,6 +46,12 @@
   (autoload 'drupal-mode "drupal-mode" "Major mode for editing DRUPAL php code." t)
   (autoload 'feature-mode "feature-mode" "Major mode for editing BDD stories" t)
   (autoload 'coffee-mode "coffee-mode" "Major mode for editing coffee scripts" t)
+  (autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
+
+  (add-hook 'drupal-mode-hook       #'enable-paredit-mode)
+  (add-hook 'php-mode-hook       #'enable-paredit-mode)
+  (add-hook 'js-mode-hook       #'enable-paredit-mode)
+
 
   ;;(add-to-list 'auto-mode-alist '("\\.php$" . drupal-mode))
   (add-to-list 'auto-mode-alist '("\\.inc$" . drupal-mode))
