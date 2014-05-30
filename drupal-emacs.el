@@ -20,15 +20,18 @@
   (add-to-list 'load-path (file-truename "./elisp/geben"))
   (add-to-list 'load-path (file-truename "./elisp/icicles"))
   (add-to-list 'load-path (file-truename "./elisp/php-mode"))
-  )
+  (add-to-list 'load-path (file-truename "./elisp/feature-mode"))
+  (add-to-list 'load-path (file-truename "./elisp/coffee-mode"))
+  (add-to-list 'load-path (file-truename "./elisp/web-mode"))
+  (add-to-list 'load-path (file-truename "./elisp/paredit")))
+
 
 (defun drupal-emacs()
   (require 'icicles)
   (require 'dired+)
   (require 'bookmark+)
-
   (require 'php-mode)
-  (require 'drupal-mode)
+  (require 'web-mode)
 
   (icy-mode 1)
   (load-theme 'manoj-dark t)
@@ -42,8 +45,16 @@
   (setq-default indent-tabs-mode nil)
   (setq-default bmkp-prompt-for-tags-flag t)
   (autoload 'drupal-mode "drupal-mode" "Major mode for editing DRUPAL php code." t)
+  (autoload 'feature-mode "feature-mode" "Major mode for editing BDD stories" t)
+  (autoload 'coffee-mode "coffee-mode" "Major mode for editing coffee scripts" t)
+  (autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
 
-  (add-to-list 'auto-mode-alist '("\\.php$" . drupal-mode))
+  (add-hook 'drupal-mode-hook       #'enable-paredit-mode)
+  (add-hook 'php-mode-hook       #'enable-paredit-mode)
+  (add-hook 'js-mode-hook       #'enable-paredit-mode)
+
+
+  ;;(add-to-list 'auto-mode-alist '("\\.php$" . drupal-mode))
   (add-to-list 'auto-mode-alist '("\\.inc$" . drupal-mode))
   (add-to-list 'auto-mode-alist '("\\.module$" . drupal-mode))
   (add-to-list 'auto-mode-alist '("\\.install$" . drupal-mode))
@@ -51,14 +62,23 @@
   (add-to-list 'auto-mode-alist '("\\.txt$" . markdown-mode))
   (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
   (add-to-list 'auto-mode-alist '("\\.MD$" . markdown-mode))
+  (add-to-list 'auto-mode-alist '("\\.feature$" . feature-mode))
+  (add-to-list 'auto-mode-alist '("\\.story$" . feature-mode))
+  (add-to-list 'auto-mode-alist '("\\.tpl\\.php$" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.coffee$" . coffee-mode))
+
+
 
   (global-set-key (kbd "<f9>") 'bmkp-file-all-tags-jump)
 
   (recentf-mode 1)
   (setq recentf-max-menu-items 25)
   (global-set-key "\C-x\ \C-r" 'recentf-open-files)
+  (global-set-key "\M->" 'end-of-buffer)
 
   (add-hook 'markdown-mode-hook 'select-markdown-theme)
+  (autoload 'geben "geben" "DBGp protocol frontend, a script debugger" t)
+  (setq org-todo-keywords '((sequence "TODO(t)" "IN PROGRESS(i!/!)" "WAIT(w@/!)"  "|" "DONE(d@)" "CANCELED(c@)")))
   )
 
 (defun select-markdown-theme ()
@@ -66,5 +86,6 @@
   (setq-default fill-column 80)
   (flyspell-mode t)
   )
+
 
 (provide 'drupal-emacs)

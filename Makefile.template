@@ -1,0 +1,16 @@
+SUBDIRS = modules themes misc profiles sites includes
+TAGS_TARGETS = $(addsuffix /TAGS,$(SUBDIRS))
+TAGS_INCLUDE = $(addprefix --etags-include=,$(addsuffix /TAGS,$(SUBDIRS)))
+
+.PHONY : all clean
+
+all : clean $(TAGS_TARGETS)
+	ctags -e $(TAGS_INCLUDE)
+	@echo "Done"
+
+clean :
+	$(foreach dir, $(TAGS_TARGETS), rm $(dir);)
+
+$(TAGS_TARGETS) : clean
+	find $(@D) -name "*.php" -o -name "*.module" -o -name "*.inc" -o -name "*.js" |xargs ctags -eao $@ --langmap=php:+.inc+.module;
+

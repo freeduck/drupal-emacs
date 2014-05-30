@@ -1,9 +1,22 @@
 [submodule "elisp/php-mode"]
 	path = elisp/php-mode
-	url = github:freeduck/php-mode.git
+	url = https://github.com/freeduck/php-mode.git
 [submodule "elisp/bookmark-plus"]
 	path = elisp/bookmark-plus
-	url = github:freeduck/bookmark-plus.git
+	url = https://github.com/freeduck/bookmark-plus.git
 [submodule "elisp/icicles"]
 	path = elisp/icicles
-	url = github:freeduck/icicles.git
+	url = https://github.com/freeduck/icicles.git
+
+[submodule "elisp/web-mode"]
+	path = elisp/web-mode
+	url = https://github.com/freeduck/web-mode.git
+[submodule "elisp/feature-mode"]
+	path = elisp/feature-mode
+	url = https://github.com/freeduck/cucumber.el.git
+[submodule "elisp/coffee-mode"]
+	path = elisp/coffee-mode
+	url = https://github.com/freeduck/coffee-mode.git
+[submodule "elisp/paredit"]
+	path = elisp/paredit
+	url = https://github.com/freeduck/paredit.git
