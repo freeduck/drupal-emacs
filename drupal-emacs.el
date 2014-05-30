@@ -31,6 +31,7 @@
   (require 'dired+)
   (require 'bookmark+)
   (require 'php-mode)
+  (require 'web-mode)
 
   (icy-mode 1)
   (load-theme 'manoj-dark t)
