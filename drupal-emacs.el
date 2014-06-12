@@ -49,8 +49,8 @@
   (autoload 'coffee-mode "coffee-mode" "Major mode for editing coffee scripts" t)
   (autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
 
-  (add-hook 'drupal-mode-hook       #'enable-paredit-mode)
-  (add-hook 'php-mode-hook       #'enable-paredit-mode)
+  ;;(add-hook 'drupal-mode-hook       #'enable-paredit-mode)
+  ;;(add-hook 'php-mode-hook       #'enable-paredit-mode)
   (add-hook 'js-mode-hook       #'enable-paredit-mode)
 
 
