@@ -70,6 +70,7 @@
 
 
   (global-set-key (kbd "<f9>") 'bmkp-file-all-tags-jump)
+  (global-set-key (kbd "<f11>") 'icicle-dired-project)
 
   (recentf-mode 1)
   (setq recentf-max-menu-items 25)
