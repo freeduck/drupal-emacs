@@ -50,6 +50,8 @@
   (require 'dired-details+)
   (require 'php-mode)
   (require 'web-mode)
+  (require 'clojure)
+  (require 'cl)
 
   (icy-mode 1)
   (load-theme 'manoj-dark t)
