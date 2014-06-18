@@ -53,6 +53,9 @@
   (require 'clojure)
   (require 'cl)
 
+  (require 'magit-gitflow)
+  (add-hook 'magit-mode-hook 'turn-on-magit-gitflow)
+
   (icy-mode 1)
   (load-theme 'manoj-dark t)
   (show-paren-mode t)
