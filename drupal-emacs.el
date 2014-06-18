@@ -27,11 +27,34 @@
 
 
 (defun drupal-emacs()
+  (require 'package)
+  (add-to-list 'package-archives
+               '("melpa" . "http://melpa.milkbox.net/packages/") t)
+  (add-to-list 'package-archives
+               '("marmalade" . "http://marmalade-repo.org/packages/") t)
+  (package-initialize)
+  (package-refresh-contents)
+
+  (defvar my-packages '(starter-kit
+                        starter-kit-bindings
+                        magit
+                        magit-gitflow
+                        dired-details+
+                        bookmark+
+                        dired+))
+  (mapc 'package-install  (remove-if 'package-installed-p my-packages))
+  
   (require 'icicles)
   (require 'dired+)
   (require 'bookmark+)
+  (require 'dired-details+)
   (require 'php-mode)
   (require 'web-mode)
+  (require 'clojure)
+  (require 'cl)
+
+  (require 'magit-gitflow)
+  (add-hook 'magit-mode-hook 'turn-on-magit-gitflow)
 
   (icy-mode 1)
   (load-theme 'manoj-dark t)
@@ -49,8 +72,8 @@
   (autoload 'coffee-mode "coffee-mode" "Major mode for editing coffee scripts" t)
   (autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
 
-  (add-hook 'drupal-mode-hook       #'enable-paredit-mode)
-  (add-hook 'php-mode-hook       #'enable-paredit-mode)
+  ;;(add-hook 'drupal-mode-hook       #'enable-paredit-mode)
+  ;;(add-hook 'php-mode-hook       #'enable-paredit-mode)
   (add-hook 'js-mode-hook       #'enable-paredit-mode)
 
 
@@ -70,6 +93,7 @@
 
 
   (global-set-key (kbd "<f9>") 'bmkp-file-all-tags-jump)
+  (global-set-key (kbd "<f11>") 'icicle-dired-project)
 
   (recentf-mode 1)
   (setq recentf-max-menu-items 25)
