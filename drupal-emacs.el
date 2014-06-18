@@ -27,6 +27,23 @@
 
 
 (defun drupal-emacs()
+  (require 'package)
+  (add-to-list 'package-archives
+               '("melpa" . "http://melpa.milkbox.net/packages/") t)
+  (add-to-list 'package-archives
+               '("marmalade" . "http://marmalade-repo.org/packages/") t)
+  (package-initialize)
+  (package-refresh-contents)
+
+  (defvar my-packages '(starter-kit
+                        starter-kit-bindings
+                        magit
+                        magit-gitflow
+                        dired-details+
+                        bookmark+
+                        dired+))
+  (mapc 'package-install  (remove-if 'package-installed-p my-packages))
+  
   (require 'icicles)
   (require 'dired+)
   (require 'bookmark+)
