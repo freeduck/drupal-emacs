@@ -47,6 +47,7 @@
   (require 'icicles)
   (require 'dired+)
   (require 'bookmark+)
+  (require 'dired-details+)
   (require 'php-mode)
   (require 'web-mode)
 
